@@ -70,5 +70,41 @@ function draw() {
       vertex(x, y);
     }
     endShape(CLOSE);
+
+    // 右眼索引
+    const rightEyeIndices = [
+      359,467,260,259,257,258,286,414,463,341,256,252,253,254,339,255,
+      263,466,388,387,386,385,384,398,362,382,381,380,374,373,390,249
+    ];
+
+    // 畫右眼線條（藍色）
+    stroke(0, 0, 255);
+    strokeWeight(2);
+    noFill();
+    for (let i = 0; i < rightEyeIndices.length - 1; i++) {
+      const idxA = rightEyeIndices[i];
+      const idxB = rightEyeIndices[i + 1];
+      const [xA, yA] = keypoints[idxA];
+      const [xB, yB] = keypoints[idxB];
+      line(xA, yA, xB, yB);
+    }
+
+    // 左眼索引
+    const leftEyeIndices = [
+      243,190,56,28,27,29,30,247,130,25,110,24,23,22,26,112,
+      133,173,157,158,159,160,161,246,33,7,163,144,145,153,154,155
+    ];
+
+    // 畫左眼線條（綠色）
+    stroke(0, 255, 0);
+    strokeWeight(2);
+    noFill();
+    for (let i = 0; i < leftEyeIndices.length - 1; i++) {
+      const idxA = leftEyeIndices[i];
+      const idxB = leftEyeIndices[i + 1];
+      const [xA, yA] = keypoints[idxA];
+      const [xB, yB] = keypoints[idxB];
+      line(xA, yA, xB, yB);
+    }
   }
 }
