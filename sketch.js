@@ -77,6 +77,17 @@ function draw() {
       263,466,388,387,386,385,384,398,362,382,381,380,374,373,390,249
     ];
 
+    // 先用f5cac3填滿右眼區域
+    fill('#f5cac3');
+    noStroke();
+    beginShape();
+    for (let i = 0; i < rightEyeIndices.length; i++) {
+      const idx = rightEyeIndices[i];
+      const [x, y] = keypoints[idx];
+      vertex(x, y);
+    }
+    endShape(CLOSE);
+
     // 畫右眼線條（藍色）
     stroke(0, 0, 255);
     strokeWeight(2);
